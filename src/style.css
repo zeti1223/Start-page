@@ -86,6 +86,23 @@ a, button, select, input[type="radio"], .shortcut, .close-button {
   box-shadow: 4px 4px 0 rgba(192, 57, 43, 0.3);
 }
 
+#clock {
+  position: fixed;
+  top: 18%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-0.5deg);
+  z-index: 10;
+  font-size: 4rem;
+  font-weight: bold;
+  color: #1a1a1a;
+  text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.5);
+  background: #fff8dc;
+  padding: 15px 30px;
+  border: 3px solid #1a1a1a;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+}
+
 #search-container {
   position: fixed;
   top: 35%;
