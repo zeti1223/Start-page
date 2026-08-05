@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NASA Astronomy Picture of the Day</title>
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h1>NASA Astronomy Picture of the Day</h1>
+        <p id="date"></p>
+      </header>
+      
+      <main>
+        <div id="loading">Loading today's cosmic wonder...</div>
+        <div id="error" class="hidden"></div>
+        
+        <div id="content" class="hidden">
+          <div id="image-container">
+            <img id="apod-image" src="" alt="NASA Astronomy Picture of the Day">
+          </div>
+          
+          <div id="info">
+            <h2 id="title"></h2>
+            <p id="explanation"></p>
+            <p id="copyright"></p>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,137 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #0c0c1e 0%, #1a1a3e 50%, #0c0c1e 100%);
+  color: #ffffff;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+#app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(90deg, #ffffff, #a8a8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+#date {
+  color: #a8a8ff;
+  font-size: 1.1rem;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#loading {
+  font-size: 1.5rem;
+  color: #a8a8ff;
+  text-align: center;
+  padding: 3rem;
+}
+
+#error {
+  color: #ff6b6b;
+  font-size: 1.2rem;
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 107, 107, 0.1);
+  border-radius: 8px;
+  max-width: 600px;
+}
+
+#content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+#image-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+#apod-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+#apod-image:hover {
+  transform: scale(1.02);
+}
+
+#info {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#info h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+#explanation {
+  font-size: 1.1rem;
+  color: #cccccc;
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+#copyright {
+  color: #888888;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  #app {
+    padding: 1rem;
+  }
+  
+  header h1 {
+    font-size: 1.8rem;
+  }
+  
+  #info h2 {
+    font-size: 1.5rem;
+  }
+  
+  #explanation {
+    font-size: 1rem;
+  }
+}
