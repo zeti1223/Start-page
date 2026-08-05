@@ -49,18 +49,19 @@ body {
 
 #loading {
   position: fixed;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-1deg);
   font-size: 1.5rem;
   color: #1a1a1a;
   text-align: center;
-  z-index: 10;
+  z-index: 9999; 
   background: #fff8dc;
   padding: 20px 30px;
   border: 3px solid #1a1a1a;
   border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+  
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2), 0 0 0 100vmax #111111;
 }
 
 #error {
@@ -303,9 +304,9 @@ body {
 }
 
 .close-button:hover {
-  background: #1a1a1a;
-  color: #fff8dc;
-  transform: rotate(90deg);
+  background: #c0392b;
+  color: #ffffff;
+  transform: scale(1.1);
 }
 
 .settings-section {
@@ -406,7 +407,7 @@ body {
 .remove-shortcut:hover {
   background: #c0392b;
   color: #fff8dc;
-  transform: rotate(90deg);
+  transform: scale(1.1);
 }
 
 .add-shortcut-button {

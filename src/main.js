@@ -106,7 +106,8 @@ function setupSettingsModal(settings) {
   // Open settings modal
   settingsButton.addEventListener('click', () => {
     settingsModal.classList.remove('hidden');
-    loadSettingsIntoModal(settings);
+    const currentSettings = loadSettings();
+    loadSettingsIntoModal(currentSettings);
   });
   
   // Close settings modal
