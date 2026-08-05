@@ -11,6 +11,11 @@ body {
   line-height: 1.6;
   overflow: hidden;
   background: #f8f6f0;
+  cursor: url('/default.png'), default;
+}
+
+a, button, select, input[type="radio"], .shortcut, .close-button {
+  cursor: url('/pointer.png'), pointer !important;
 }
 
 #app {

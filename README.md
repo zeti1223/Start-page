@@ -17,7 +17,7 @@ A beautiful, space-themed start page that displays NASA's Astronomy Picture of t
 
 ## Live Demo
 
-Check out the deployed site: [NASA APOD Start Page](https://yourusername.github.io/Start-page/)
+Check out the deployed site: [NASA APOD Start Page](https://zeti1223.github.io/Start-page/)
 
 ## Tech Stack
 
@@ -38,7 +38,7 @@ Check out the deployed site: [NASA APOD Start Page](https://yourusername.github.
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/Start-page.git
+git clone https://github.com/zeti1223/Start-page.git
 cd Start-page
 ```
 
@@ -96,50 +96,6 @@ The built files will be in the `dist/` directory.
    - Name: `VITE_NASA_API_KEY`
    - Value: Your NASA API key
 
-## Project Structure
-
-```
-Start-page/
-├── .github/
-│   └── workflows/
-│       └── deploy.yml      # GitHub Actions deployment workflow
-├── public/
-│   └── vite.svg            # Project icon
-├── src/
-│   ├── main.js             # Main JavaScript with API integration
-│   └── style.css           # Custom styling
-├── .env.example            # Environment variables template
-├── .gitignore              # Git ignore rules
-├── index.html              # Main HTML file
-├── package.json            # Project dependencies
-├── vite.config.js          # Vite configuration
-└── README.md               # This file
-```
-
-## Customization
-
-### Changing Colors
-
-Edit `src/style.css` to customize the color scheme:
-
-```css
-body {
-  background: linear-gradient(135deg, #0c0c1e 0%, #1a1a3e 50%, #0c0c1e 100%);
-}
-```
-
-### Modifying Layout
-
-The main layout is in `index.html` with responsive containers in `src/style.css`.
-
-### Adding Features
-
-Additional features can be added to `src/main.js` - the API structure is already set up for easy extension.
-
-## Devlogs
-
-Check the [devlogs/](devlogs/) directory for development progress and decision documentation.
-
 ## Contributing
 
 Contributions are welcome! Feel free to submit issues or pull requests.
@@ -152,7 +108,8 @@ This project is open source and available under the MIT License.
 
 - **NASA APOD API** - Provided by NASA's Astronomy Picture of the Day program
 - **Vite** - Next-generation frontend tooling
-- **Original Guide** - Based on the NASA APOD tutorial
+- **Stardance Tutorial** - Original tutorial for building this type of application
+- **Cursor** - [Crumpled Paper Color cursor](https://custom-cursor.com/en/collection/detailed-colors/crumpled-paper-color)
 
 ## Resources
 
