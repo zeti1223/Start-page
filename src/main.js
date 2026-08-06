@@ -28,10 +28,10 @@ const searchEngines = {
     paramName: 'q',
     placeholder: 'Search Bing...'
   },
-  perplexity: {
-    url: 'https://www.perplexity.ai/search',
+  github: {
+    url: 'https://github.com/search',
     paramName: 'q',
-    placeholder: 'Search Perplexity...'
+    placeholder: 'Search GitHub...'
   }
 };
 
@@ -65,6 +65,9 @@ function initApp() {
   // Start clock
   updateClock();
   setInterval(updateClock, 1000);
+  
+  // Set random accent color for clock
+  setRandomAccentColor();
 }
 
 // Apply search engine to search form
@@ -230,6 +233,23 @@ function updateClock() {
   const hours = String(now.getHours()).padStart(2, '0');
   const minutes = String(now.getMinutes()).padStart(2, '0');
   clock.textContent = `${hours}:${minutes}`;
+}
+
+// Set random accent color for clock
+function setRandomAccentColor() {
+  const accentColors = [
+    { main: 'var(--accent-purple)', bg: 'rgba(105, 101, 219, 0.15)' },
+    { main: 'var(--accent-teal)', bg: 'rgba(18, 184, 134, 0.15)' },
+    { main: 'var(--accent-orange)', bg: 'rgba(255, 146, 43, 0.15)' },
+    { main: 'var(--accent-pink)', bg: 'rgba(240, 101, 149, 0.15)' }
+  ];
+  const randomColor = accentColors[Math.floor(Math.random() * accentColors.length)];
+  const clockElement = document.getElementById('clock');
+  if (clockElement) {
+    clockElement.style.color = randomColor.main;
+    clockElement.style.borderColor = randomColor.main;
+    clockElement.style.backgroundColor = randomColor.bg;
+  }
 }
 
 async function fetchAPOD() {

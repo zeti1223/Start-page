@@ -1,21 +1,34 @@
+:root {
+  --bg-color: #121212;
+  --card-bg: #1e1e1e;
+  --card-border: #333333;
+  --text-main: #e3e3e3;
+  --text-muted: #999999;
+  --accent-purple: #6965db;
+  --accent-teal: #12b886;
+  --accent-orange: #ff922b;
+  --accent-pink: #f06595;
+  --shadow-offset: 4px 4px 0px #000000;
+  --shadow-hover: 6px 6px 0px var(--accent-purple);
+  --font-hand: 'Patrick Hand', cursive, sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 body {
-  font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', sans-serif;
-  color: #1a1a1a;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-body);
   min-height: 100vh;
-  line-height: 1.6;
-  overflow: hidden;
-  background: #f8f6f0;
-  cursor: url('/default.png'), default;
-}
-
-a, button, select, input[type="radio"], .shortcut, .close-button {
-  cursor: url('/pointer.png'), pointer !important;
+  overflow-x: hidden;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  user-select: none;
 }
 
 #app {
@@ -48,7 +61,7 @@ a, button, select, input[type="radio"], .shortcut, .close-button {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(18, 18, 18, 0.7);
   z-index: -1;
 }
 
@@ -56,58 +69,58 @@ a, button, select, input[type="radio"], .shortcut, .close-button {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(-1deg);
+  transform: translate(-50%, -50%);
   font-size: 1.5rem;
-  color: #1a1a1a;
+  color: var(--text-main);
   text-align: center;
-  z-index: 9999; 
-  background: #fff8dc;
+  z-index: 9999;
+  background: var(--card-bg);
   padding: 20px 30px;
-  border: 3px solid #1a1a1a;
-  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-  
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2), 0 0 0 100vmax #111111;
+  border: 2px solid var(--card-border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-offset);
+  font-family: var(--font-hand);
 }
 
 #error {
   position: fixed;
   top: 40%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(1deg);
-  color: #c0392b;
+  transform: translate(-50%, -50%);
+  color: var(--accent-pink);
   font-size: 1.2rem;
   text-align: center;
   padding: 2rem;
-  background: #fff8dc;
-  border: 3px solid #c0392b;
-  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  background: var(--card-bg);
+  border: 2px solid var(--accent-pink);
+  border-radius: 16px;
   max-width: 600px;
   z-index: 10;
-  box-shadow: 4px 4px 0 rgba(192, 57, 43, 0.3);
+  box-shadow: var(--shadow-offset);
 }
 
 #clock {
   position: fixed;
   top: 18%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(-0.5deg);
+  transform: translate(-50%, -50%);
   z-index: 10;
   font-size: 4rem;
   font-weight: bold;
-  color: #1a1a1a;
-  text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.5);
-  background: #fff8dc;
+  color: var(--accent-purple);
+  font-family: var(--font-hand);
+  background: rgba(105, 101, 219, 0.15);
   padding: 15px 30px;
-  border: 3px solid #1a1a1a;
-  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 2px dashed var(--accent-purple);
+  box-shadow: var(--shadow-offset);
 }
 
 #search-container {
   position: fixed;
   top: 35%;
   left: 50%;
-  transform: translate(-50%, -50%) rotate(-0.5deg);
+  transform: translate(-50%, -50%);
   z-index: 10;
   width: 100%;
   max-width: 600px;
@@ -122,24 +135,24 @@ a, button, select, input[type="radio"], .shortcut, .close-button {
   width: 100%;
   padding: 18px 24px;
   font-size: 1.2rem;
-  border: 3px solid #1a1a1a;
-  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-  background: #fff8dc;
-  color: #1a1a1a;
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+  border: 2px solid var(--card-border);
+  border-radius: 12px;
+  background: var(--card-bg);
+  color: var(--text-main);
+  box-shadow: var(--shadow-offset);
   transition: all 0.2s ease;
-  font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', sans-serif;
+  font-family: var(--font-body);
 }
 
 #search-input:focus {
   outline: none;
-  background: #ffffff;
-  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
-  transform: scale(1.02) rotate(0.5deg);
+  border-color: var(--accent-purple);
+  box-shadow: var(--shadow-hover);
+  transform: translate(-2px, -2px);
 }
 
 #search-input::placeholder {
-  color: #666;
+  color: var(--text-muted);
   font-style: italic;
 }
 
@@ -162,35 +175,26 @@ a, button, select, input[type="radio"], .shortcut, .close-button {
   flex-direction: column;
   align-items: center;
   text-decoration: none;
-  background: #fff8dc;
-  border: 3px solid #1a1a1a;
-  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  background: var(--card-bg);
+  border: 2px solid var(--card-border);
+  border-radius: 12px;
   padding: 15px 20px;
   min-width: 80px;
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-offset);
   transition: all 0.2s ease;
-  transform: rotate(-1deg);
-}
-
-.shortcut:nth-child(even) {
-  transform: rotate(1deg);
-}
-
-.shortcut:nth-child(3n) {
-  transform: rotate(-0.5deg);
 }
 
 .shortcut:hover {
-  transform: scale(1.1) rotate(0deg) !important;
-  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
-  background: #ffffff;
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--accent-purple);
 }
 
 .shortcut-icon {
   font-size: 2rem;
   margin-bottom: 8px;
   line-height: 1;
-  color: #1a1a1a;
+  color: var(--text-main);
 }
 
 .shortcut-icon i {
@@ -199,9 +203,10 @@ a, button, select, input[type="radio"], .shortcut, .close-button {
 
 .shortcut-name {
   font-size: 0.85rem;
-  color: #1a1a1a;
+  color: var(--text-main);
   font-weight: bold;
   text-align: center;
+  font-family: var(--font-body);
 }
 
 #info-panel {
@@ -209,25 +214,25 @@ a, button, select, input[type="radio"], .shortcut, .close-button {
   bottom: 30px;
   right: 30px;
   max-width: 400px;
-  background: #fff8dc;
+  background: var(--card-bg);
   padding: 20px;
-  border: 3px solid #1a1a1a;
-  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  border: 2px solid var(--card-border);
+  border-radius: 16px;
   z-index: 6;
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
-  transform: rotate(1deg);
+  box-shadow: var(--shadow-offset);
 }
 
 #info-panel h2 {
   font-size: 1.3rem;
   margin-bottom: 0.8rem;
-  color: #1a1a1a;
+  color: var(--text-main);
   font-weight: bold;
+  font-family: var(--font-hand);
 }
 
 #explanation {
   font-size: 0.95rem;
-  color: #333;
+  color: var(--text-muted);
   margin-bottom: 0.8rem;
   line-height: 1.6;
   display: -webkit-box;
@@ -238,7 +243,7 @@ a, button, select, input[type="radio"], .shortcut, .close-button {
 }
 
 #copyright {
-  color: #666;
+  color: var(--text-muted);
   font-size: 0.85rem;
   font-style: italic;
 }
@@ -253,22 +258,21 @@ a, button, select, input[type="radio"], .shortcut, .close-button {
   right: 20px;
   width: 50px;
   height: 50px;
-  border: 3px solid #1a1a1a;
-  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-  background: #fff8dc;
-  color: #1a1a1a;
+  border: 2px solid var(--card-border);
+  border-radius: 12px;
+  background: var(--card-bg);
+  color: var(--text-main);
   font-size: 1.5rem;
   cursor: pointer;
   z-index: 100;
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-offset);
   transition: all 0.2s ease;
-  transform: rotate(2deg);
 }
 
 .settings-button:hover {
-  transform: scale(1.1) rotate(0deg);
-  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.3);
-  background: #ffffff;
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--accent-purple);
 }
 
 .settings-modal {
@@ -277,7 +281,7 @@ a, button, select, input[type="radio"], .shortcut, .close-button {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   z-index: 200;
   display: flex;
   align-items: center;
@@ -286,16 +290,15 @@ a, button, select, input[type="radio"], .shortcut, .close-button {
 }
 
 .settings-content {
-  background: #fff8dc;
-  border: 3px solid #1a1a1a;
-  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  background: var(--card-bg);
+  border: 2px solid var(--card-border);
+  border-radius: 16px;
   padding: 25px;
   max-width: 450px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 8px 8px 0 rgba(0, 0, 0, 0.3);
-  transform: rotate(-1deg);
+  box-shadow: var(--shadow-offset);
 }
 
 .settings-header {
@@ -303,32 +306,36 @@ a, button, select, input[type="radio"], .shortcut, .close-button {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
-  border-bottom: 2px solid #1a1a1a;
+  border-bottom: 2px solid var(--card-border);
   padding-bottom: 12px;
 }
 
 .settings-header h2 {
   font-size: 1.5rem;
-  color: #1a1a1a;
+  color: var(--text-main);
   font-weight: bold;
+  font-family: var(--font-hand);
 }
 
 .close-button {
   width: 35px;
   height: 35px;
-  border: 2px solid #1a1a1a;
-  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-  background: #fff8dc;
-  color: #1a1a1a;
+  border: 2px solid var(--card-border);
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--text-main);
   font-size: 1.2rem;
   cursor: pointer;
   transition: all 0.2s ease;
+  box-shadow: 2px 2px 0px #000;
 }
 
 .close-button:hover {
-  background: #c0392b;
+  background: var(--accent-pink);
   color: #ffffff;
-  transform: scale(1.1);
+  border-color: var(--accent-pink);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px var(--accent-pink);
 }
 
 .settings-section {
@@ -337,9 +344,10 @@ a, button, select, input[type="radio"], .shortcut, .close-button {
 
 .settings-section h3 {
   font-size: 1.1rem;
-  color: #1a1a1a;
+  color: var(--text-main);
   margin-bottom: 12px;
   font-weight: bold;
+  font-family: var(--font-hand);
 }
 
 .settings-option {
@@ -352,13 +360,14 @@ a, button, select, input[type="radio"], .shortcut, .close-button {
   gap: 10px;
   cursor: pointer;
   font-size: 1rem;
-  color: #1a1a1a;
+  color: var(--text-main);
 }
 
 .settings-option input[type="radio"] {
   width: 20px;
   height: 20px;
   cursor: pointer;
+  accent-color: var(--accent-purple);
 }
 
 .shortcuts-list {
@@ -372,184 +381,94 @@ a, button, select, input[type="radio"], .shortcut, .close-button {
   align-items: center;
   gap: 8px;
   padding: 8px;
-  background: #ffffff;
-  border: 2px solid #1a1a1a;
-  border-radius: 15px 255px 15px 225px/225px 15px 255px 15px;
+  background: #141414;
+  border: 2px solid var(--card-border);
+  border-radius: 8px;
   margin-bottom: 8px;
-  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 0px #000;
   flex-wrap: wrap;
 }
 
 .shortcut-item input {
-  padding: 6px 10px;
-  border: 2px solid #1a1a1a;
-  border-radius: 15px 255px 15px 225px/225px 15px 255px 15px;
-  font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', sans-serif;
-  font-size: 0.85rem;
+  flex: 1;
+  min-width: 120px;
+  padding: 8px 12px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
 }
 
 .shortcut-item input:focus {
   outline: none;
-  background: #fff8dc;
-}
-
-.shortcut-item .shortcut-url {
-  flex: 1 1 100%;
-  min-width: 0;
-}
-
-.shortcut-item .shortcut-name {
-  flex: 1 1 auto;
-  min-width: 80px;
-}
-
-.shortcut-item .shortcut-icon-select {
-  flex: 0 0 auto;
-  padding: 6px 8px;
-  border: 2px solid #1a1a1a;
-  border-radius: 15px 255px 15px 225px/225px 15px 255px 15px;
-  font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', sans-serif;
-  font-size: 0.85rem;
-  cursor: pointer;
+  border-color: var(--accent-purple);
 }
 
 .remove-shortcut {
-  width: 28px;
-  height: 28px;
-  border: 2px solid #c0392b;
-  border-radius: 15px 255px 15px 225px/225px 15px 255px 15px;
-  background: #fff8dc;
-  color: #c0392b;
+  background: var(--accent-pink);
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 0.85rem;
   transition: all 0.2s ease;
-  font-size: 0.9rem;
-  flex: 0 0 auto;
+  box-shadow: 2px 2px 0px #000;
 }
 
 .remove-shortcut:hover {
-  background: #c0392b;
-  color: #fff8dc;
-  transform: scale(1.1);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px var(--accent-pink);
 }
 
 .add-shortcut-button {
   width: 100%;
-  padding: 10px 16px;
-  border: 3px solid #1a1a1a;
-  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-  background: #fff8dc;
-  color: #1a1a1a;
-  font-size: 0.95rem;
-  font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', sans-serif;
+  padding: 12px 20px;
+  background: var(--accent-purple);
+  border: 2px solid var(--accent-purple);
+  border-radius: 8px;
+  color: #fff;
+  font-family: var(--font-hand);
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 3px 0px #000;
 }
 
 .add-shortcut-button:hover {
-  background: #1a1a1a;
-  color: #fff8dc;
-  transform: scale(1.02);
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px var(--accent-teal);
+  background: var(--accent-teal);
+  border-color: var(--accent-teal);
 }
 
 .settings-footer {
-  margin-top: 18px;
-  padding-top: 12px;
-  border-top: 2px solid #1a1a1a;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 2px dashed var(--card-border);
 }
 
 .save-button {
   width: 100%;
-  padding: 12px 16px;
-  border: 3px solid #1a1a1a;
-  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
-  background: #1a1a1a;
-  color: #fff8dc;
-  font-size: 1rem;
-  font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', sans-serif;
+  padding: 12px 20px;
+  background: var(--accent-teal);
+  border: 2px solid var(--accent-teal);
+  border-radius: 8px;
+  color: #fff;
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
-  font-weight: bold;
+  box-shadow: 3px 3px 0px #000;
 }
 
 .save-button:hover {
-  background: #fff8dc;
-  color: #1a1a1a;
-  transform: scale(1.02);
-  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.4);
-}
-
-@media (max-width: 768px) {
-  #info-panel {
-    bottom: 20px;
-    right: 20px;
-    left: 20px;
-    max-width: none;
-  }
-  
-  #search-input {
-    font-size: 1rem;
-    padding: 15px 20px;
-  }
-  
-  #info-panel h2 {
-    font-size: 1.1rem;
-  }
-  
-  #explanation {
-    font-size: 0.9rem;
-  }
-  
-  #shortcuts {
-    top: calc(35% + 70px);
-    gap: 10px;
-  }
-  
-  .shortcut {
-    min-width: 60px;
-    padding: 10px 15px;
-  }
-  
-  .shortcut-icon {
-    font-size: 1.5rem;
-    margin-bottom: 5px;
-  }
-  
-  .shortcut-icon i {
-    font-size: inherit;
-  }
-  
-  .shortcut-name {
-    font-size: 0.75rem;
-  }
-  
-  .settings-modal {
-    padding: 10px;
-  }
-  
-  .settings-content {
-    padding: 20px;
-    max-height: 90vh;
-  }
-  
-  .settings-header h2 {
-    font-size: 1.3rem;
-  }
-  
-  .shortcuts-list {
-    max-height: 200px;
-  }
-  
-  .shortcut-item {
-    gap: 6px;
-    padding: 6px;
-  }
-  
-  .shortcut-item input,
-  .shortcut-item .shortcut-icon-select {
-    font-size: 0.8rem;
-    padding: 5px 8px;
-  }
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0px var(--accent-purple);
+  background: var(--accent-purple);
+  border-color: var(--accent-purple);
 }
