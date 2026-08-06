@@ -195,10 +195,18 @@ body {
   margin-bottom: 8px;
   line-height: 1;
   color: var(--text-main);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.shortcut-icon i {
-  font-size: inherit;
+.shortcut-icon img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  border-radius: 4px;
 }
 
 .shortcut-name {
@@ -389,7 +397,7 @@ body {
   flex-wrap: wrap;
 }
 
-.shortcut-item input {
+.shortcut-item .shortcut-name {
   flex: 1;
   min-width: 120px;
   padding: 8px 12px;
@@ -399,6 +407,23 @@ body {
   color: var(--text-main);
   font-family: var(--font-body);
   font-size: 0.9rem;
+}
+
+.shortcut-item .shortcut-url {
+  flex: 2;
+  min-width: 200px;
+  padding: 8px 12px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+}
+
+.shortcut-item input:focus {
+  outline: none;
+  border-color: var(--accent-purple);
 }
 
 .shortcut-item input:focus {

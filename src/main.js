@@ -7,12 +7,12 @@ const API_URL = 'https://api.nasa.gov/planetary/apod';
 const defaultSettings = {
   searchEngine: 'google',
   shortcuts: [
-    { name: 'YouTube', url: 'https://www.youtube.com', icon: 'fab fa-youtube' },
-    { name: 'GitHub', url: 'https://github.com', icon: 'fab fa-github' },
-    { name: 'Reddit', url: 'https://www.reddit.com', icon: 'fab fa-reddit' },
-    { name: 'LinkedIn', url: 'https://www.linkedin.com', icon: 'fab fa-linkedin' },
-    { name: 'Twitch', url: 'https://www.twitch.tv', icon: 'fab fa-twitch' },
-    { name: 'Spotify', url: 'https://www.spotify.com', icon: 'fab fa-spotify' }
+    { name: 'YouTube', url: 'https://www.youtube.com' },
+    { name: 'GitHub', url: 'https://github.com' },
+    { name: 'Reddit', url: 'https://www.reddit.com' },
+    { name: 'LinkedIn', url: 'https://www.linkedin.com' },
+    { name: 'Twitch', url: 'https://www.twitch.tv' },
+    { name: 'Spotify', url: 'https://www.spotify.com' }
   ]
 };
 
@@ -92,8 +92,12 @@ function renderShortcuts(shortcuts) {
     shortcutElement.className = 'shortcut';
     shortcutElement.target = '_blank';
     
+    // Get favicon from Google's favicon service
+    const domain = new URL(shortcut.url).hostname;
+    const faviconUrl = `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
+    
     shortcutElement.innerHTML = `
-      <span class="shortcut-icon"><i class="${shortcut.icon}"></i></span>
+      <span class="shortcut-icon"><img src="${faviconUrl}" alt="${shortcut.name}" onerror="this.src='https://www.google.com/s2/favicons?domain=${domain}'"></span>
       <span class="shortcut-name">${shortcut.name}</span>
     `;
     
@@ -161,7 +165,7 @@ function loadSettingsIntoModal(settings) {
   shortcutsList.innerHTML = '';
   
   settings.shortcuts.forEach(shortcut => {
-    addShortcutItem(shortcut.name, shortcut.url, shortcut.icon);
+    addShortcutItem(shortcut.name, shortcut.url);
   });
 }
 
@@ -177,10 +181,9 @@ function getSettingsFromModal() {
   shortcutItems.forEach(item => {
     const name = item.querySelector('.shortcut-name').value;
     const url = item.querySelector('.shortcut-url').value;
-    const icon = item.querySelector('.shortcut-icon-select').value;
     
     if (name && url) {
-      shortcuts.push({ name, url, icon });
+      shortcuts.push({ name, url });
     }
   });
   
@@ -188,7 +191,7 @@ function getSettingsFromModal() {
 }
 
 // Add shortcut item to modal
-function addShortcutItem(name = '', url = '', icon = 'fas fa-link') {
+function addShortcutItem(name = '', url = '') {
   const shortcutsList = document.getElementById('shortcuts-list');
   
   const shortcutItem = document.createElement('div');
@@ -196,26 +199,10 @@ function addShortcutItem(name = '', url = '', icon = 'fas fa-link') {
   
   shortcutItem.innerHTML = `
     <input type="text" class="shortcut-name" placeholder="Name" value="${name}">
-    <select class="shortcut-icon-select">
-      <option value="fas fa-link" ${icon === 'fas fa-link' ? 'selected' : ''}>Link</option>
-      <option value="fab fa-youtube" ${icon === 'fab fa-youtube' ? 'selected' : ''}>YouTube</option>
-      <option value="fab fa-github" ${icon === 'fab fa-github' ? 'selected' : ''}>GitHub</option>
-      <option value="fab fa-reddit" ${icon === 'fab fa-reddit' ? 'selected' : ''}>Reddit</option>
-      <option value="fab fa-linkedin" ${icon === 'fab fa-linkedin' ? 'selected' : ''}>LinkedIn</option>
-      <option value="fab fa-twitch" ${icon === 'fab fa-twitch' ? 'selected' : ''}>Twitch</option>
-      <option value="fab fa-spotify" ${icon === 'fab fa-spotify' ? 'selected' : ''}>Spotify</option>
-      <option value="fab fa-twitter" ${icon === 'fab fa-twitter' ? 'selected' : ''}>Twitter</option>
-      <option value="fab fa-instagram" ${icon === 'fab fa-instagram' ? 'selected' : ''}>Instagram</option>
-      <option value="fab fa-facebook" ${icon === 'fab fa-facebook' ? 'selected' : ''}>Facebook</option>
-      <option value="fab fa-discord" ${icon === 'fab fa-discord' ? 'selected' : ''}>Discord</option>
-      <option value="fas fa-globe" ${icon === 'fas fa-globe' ? 'selected' : ''}>Globe</option>
-      <option value="fas fa-envelope" ${icon === 'fas fa-envelope' ? 'selected' : ''}>Email</option>
-      <option value="fas fa-shopping-cart" ${icon === 'fas fa-shopping-cart' ? 'selected' : ''}>Shop</option>
-    </select>
+    <input type="text" class="shortcut-url" placeholder="URL" value="${url}">
     <button class="remove-shortcut">
       <i class="fas fa-times"></i>
     </button>
-    <input type="text" class="shortcut-url" placeholder="URL" value="${url}">
   `;
   
   // Remove button functionality
