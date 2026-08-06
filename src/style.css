@@ -82,6 +82,16 @@ body {
   font-family: var(--font-hand);
 }
 
+body.loading #background-image,
+body.loading #clock,
+body.loading #search-container,
+body.loading #shortcuts,
+body.loading #settings-button,
+body.loading #info-panel {
+  filter: blur(8px);
+  pointer-events: none;
+}
+
 #error {
   position: fixed;
   top: 40%;

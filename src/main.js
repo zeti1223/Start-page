@@ -50,6 +50,9 @@ function saveSettings(settings) {
 function initApp() {
   const settings = loadSettings();
   
+  // Add loading class to body
+  document.body.classList.add('loading');
+  
   // Apply search engine setting
   applySearchEngine(settings.searchEngine);
   
@@ -269,12 +272,14 @@ async function fetchAPOD() {
     
     // Show content, hide loading
     loading.classList.add('hidden');
+    document.body.classList.remove('loading');
     error.classList.add('hidden');
     infoPanel.classList.remove('hidden');
     
   } catch (err) {
     console.error('Error fetching APOD:', err);
     loading.classList.add('hidden');
+    document.body.classList.remove('loading');
     infoPanel.classList.add('hidden');
     error.classList.remove('hidden');
     error.textContent = 'Failed to load today\'s astronomy picture. Please check your API key and try again.';
